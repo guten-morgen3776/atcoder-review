@@ -83,5 +83,20 @@ def check_bipartite(N, edges):
       return False #同じ色同士をむすぶ辺があったらアウト
   return True
 ```
+```
+delete = []
+from itertools import combinations 
+for i in range(0, M + 1): #i本消す場合を考える
+  for removed in combinations(range(M), i):
+    #combination関数で範囲内からi個取るパターンを列挙
+    new_edges = []
+    for j in range(M):
+      if j not in removed:
+        new_edges.append(edges[j])
+    if check_bipartite(N, new_edges):
+      delete.append(i)
+print(min(delete))
+```
+こんな感じで全探索したんだけどTLEになっちまった😭 後で考え直す
 
   
