@@ -67,6 +67,21 @@ edges = [tuple(map(int, input().split())) for _ in range(M)]
 それに隣接する頂点を赤に塗る　・・・
 それを続けていって同じ色同士が繋がっていたらアウト
 ```
-
+```
+def check_bipartite(N, edges):
+  color = [0] * (N + 1) #リストの０は使わない
+  for start in range(1, N + 1):
+    if color[start] == 0: #色がついてない頂点を見つけて赤に塗る
+      color[start] = 1
+    for u, v in edges:
+      if u == start and color[v] == 0:
+        color[v] = 3 - color[u] #赤の隣には青、青の隣には赤
+      elif v == start and color[u] == 0:
+        color[u] = 3 - color[v]
+  for u, v in edges:
+    if color[u] == color[v]:
+      return False #同じ色同士をむすぶ辺があったらアウト
+  return True
+```
 
   
