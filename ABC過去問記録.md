@@ -110,9 +110,13 @@ print(min(delete))
 10 ** nとかで挟むより
 文字列に変換してlen()でやったほうが圧倒的に計算量減らせる!!
 ```
+### https://atcoder.jp/contests/sumitrust2019/tasks/sumitb2019_d
 ```
 パターン列挙ツール
 #itertoolsの使い方
 combinations([1,2,3,4,5],3) :リストから３つ選ぶパターンを全列挙
+```
+```
+ set() :リスト内の要素を重複なく抽出
 ```
 
